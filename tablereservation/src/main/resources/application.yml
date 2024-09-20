@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: tablereservation
+  data:
+    mongodb:
+      uri: mongodb+srv://root:LEiLqeb5FzeqLR89@postechfiap.zqzyfmo.mongodb.net/?retryWrites=true&w=majority&appName=PosTechFiap
+      database: PosTechFiap
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: postechfiap910@gmail.com
+    password: yefy ztpi kblc mpfq
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+server:
+  servlet:
+    contextPath: "/tableReservation/api"
+reservation:
+  email-noreply: "postechfiap910@gmail.com"
