@@ -24,7 +24,7 @@ public class Utils {
 
 	@SuppressWarnings("null")
 	public static boolean isValidString(String string) {
-		return Objects.isNull(string) && string.isBlank();
+		return string != null && !string.isBlank();
 	}
 
 }

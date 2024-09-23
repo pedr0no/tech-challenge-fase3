@@ -1,5 +1,6 @@
 package br.com.fiap.techchallenge.tablereservation.infrastructure.gateway;
 
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.http.HttpStatus;
@@ -65,6 +66,11 @@ public class RestaurantGatewayImpl implements RestaurantGateway {
 			return restaurantEntityMapper.listEntityToRestaurant(entities, number, cep);
 		}
 		throw new BusinessException(HttpStatus.BAD_REQUEST, "Não foi enviado parâmetro para busca de Restaurante");
+	}
+
+	@Override
+	public List<Restaurant> listByFilter(String city) {
+		return List.of();
 	}
 
 	@Override

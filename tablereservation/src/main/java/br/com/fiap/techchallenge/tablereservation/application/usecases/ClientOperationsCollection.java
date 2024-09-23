@@ -16,8 +16,11 @@ public class ClientOperationsCollection {
 	}
 
 	public Client createClient(Client client) {
-		validateCLientFields(client);
+		validateClientFields(client);
 		return clientGateway.createClient(client);
+	}
+
+	private void validateCLientFields(Client client) {
 	}
 
 	public Client updateClient(String idClient, Client client) {
@@ -32,11 +35,11 @@ public class ClientOperationsCollection {
 		clientGateway.deleteClientById(idClient);
 	}
 
-	private void validateCLientFields(Client client) {
+	private void validateClientFields(Client client) {
 		var stringBuilder = new StringBuilder();
-		if (Utils.isValidString(client.getName()))
+		if (!Utils.isValidString(client.getName())) // Verifica se o nome é inválido
 			stringBuilder.append(" name,");
-		if (Utils.isValidString(client.getEmail()))
+		if (!Utils.isValidString(client.getEmail())) // Verifica se o email é inválido
 			stringBuilder.append(" email,");
 		if (!stringBuilder.isEmpty())
 			throw new BusinessException(HttpStatus.BAD_REQUEST,

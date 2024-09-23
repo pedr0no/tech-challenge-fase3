@@ -2,6 +2,7 @@ package br.com.fiap.techchallenge.tablereservation.application.usecases;
 
 import br.com.fiap.techchallenge.tablereservation.application.gateways.RestaurantGateway;
 import br.com.fiap.techchallenge.tablereservation.domain.entity.Restaurant;
+import java.util.List;
 
 public class RestaurantOperationsCollection {
 
@@ -29,6 +30,10 @@ public class RestaurantOperationsCollection {
 
 	public void deleteRestaurantById(String idRestaurant) {
 		restaurantGateway.deleteRestaurantById(idRestaurant);
+	}
+
+	public List<Restaurant> listByFilter(String city) {
+		return restaurantGateway.listByFilter(city);  // Chamando o método da interface
 	}
 
 }

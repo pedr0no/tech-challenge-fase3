@@ -16,4 +16,7 @@ public interface ReservationGateway {
 
 	Reservation updateReservationStatus(String idReservation, ReservationStatus status);
 
+	void deleteReservation(String idReservation);
+
+    Object create(String reservationId, Reservation reservation);
 }
