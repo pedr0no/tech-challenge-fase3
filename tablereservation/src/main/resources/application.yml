@@ -3,7 +3,7 @@ spring:
     name: tablereservation
   data:
     mongodb:
-      uri: mongodb+srv://root:LEiLqeb5FzeqLR89@postechfiap.zqzyfmo.mongodb.net/?retryWrites=true&w=majority&appName=PosTechFiap
+      uri: ${SPRING_DATA_MONGODB_URI:mongodb+srv://root:LEiLqeb5FzeqLR89@postechfiap.zqzyfmo.mongodb.net/?retryWrites=true&w=majority&appName=PosTechFiap}
       database: PosTechFiap
   mail:
     host: smtp.gmail.com
