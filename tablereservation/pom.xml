@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -7,7 +8,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.3.0</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 
 	<groupId>br.com.fiap.techchallenge</groupId>
@@ -21,7 +22,6 @@
 		<spring-cloud.version>2023.0.3</spring-cloud.version>
 	</properties>
 
-	<!-- Repositórios adicionais (se necessário) -->
 	<repositories>
 		<repository>
 			<id>spring-releases</id>
@@ -32,6 +32,11 @@
 			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
 			<url>https://repo.spring.io/milestone/</url>
+		</repository>
+		<repository>
+			<id>allure</id>
+			<name>Allure Repository</name>
+			<url>https://plugins.gradle.org/m2/</url>
 		</repository>
 	</repositories>
 
@@ -98,25 +103,25 @@
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>7.11.0</version>
+			<version>7.13.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-spring</artifactId>
-			<version>7.11.0</version>
+			<version>7.13.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-suite</artifactId>
-			<version>1.9.0</version>
+			<version>1.9.3</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit-platform-engine</artifactId>
-			<version>7.11.0</version>
+			<version>7.13.0</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -128,13 +133,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.testcontainers</groupId>
-			<artifactId>mongodb</artifactId>
-			<version>1.19.0</version>
-			<scope>test</scope>
-		</dependency>
-
+		<!-- Testcontainers -->
 		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>mongodb</artifactId>
@@ -147,6 +146,19 @@
 			<version>1.19.0</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Dependências do Allure -->
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-junit5</artifactId>
+			<version>2.23.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-rest-assured</artifactId>
+			<version>2.23.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -156,15 +168,9 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>3.3.0</version>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
 			</plugin>
+
+			<!-- Plugin Jacoco para cobertura de código -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -183,6 +189,52 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+
+			<!-- Plugin para gerar relatório Cucumber -->
+			<plugin>
+				<groupId>net.masterthought</groupId>
+				<artifactId>maven-cucumber-reporting</artifactId>
+				<version>5.7.0</version>
+				<executions>
+					<execution>
+						<id>cucumber-reports</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<projectName>Table Reservation</projectName>
+							<outputDirectory>${project.build.directory}/cucumber-reports</outputDirectory>
+							<jsonFiles>
+								<param>${project.build.directory}/cucumber-reports/cucumber.json</param>
+							</jsonFiles>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Plugin do Surefire para rodar os testes -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version>
+				<configuration>
+					<includes>
+						<include>**/CucumberTest.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+
+			<!-- Plugin Allure para geração de relatórios -->
+			<plugin>
+				<groupId>io.qameta.allure</groupId>
+				<artifactId>allure-maven</artifactId>
+				<version>2.10.0</version>
+				<configuration>
+					<resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+					<reportDirectory>${project.build.directory}/allure-report</reportDirectory>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

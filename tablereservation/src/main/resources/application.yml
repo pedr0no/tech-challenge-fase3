@@ -21,3 +21,6 @@ server:
     contextPath: "/tableReservation/api"
 reservation:
   email-noreply: "postechfiap910@gmail.com"
+  spring:
+    freemarker:
+      check-template-location: false

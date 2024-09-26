@@ -60,10 +60,9 @@ public class RestaurantStepDefinitions {
         OpeningHoursDetails openingHours = new OpeningHoursDetails(LocalDate.parse(day), openingTime, closingTime, List.of());
         restaurant.setOpeningHours(List.of(openingHours));
     }
-
     @When("eu fizer o cadastro do restaurante")
     public void euFizerOCadastroDoRestaurante() {
-        restaurant = restaurantOperationsCollection.createRestaurant(restaurant);
+         restaurant = restaurantOperationsCollection.createRestaurant(restaurant);
     }
 
     @Then("o sistema deve retornar o restaurante cadastrado com sucesso")
@@ -71,7 +70,6 @@ public class RestaurantStepDefinitions {
         assertThat(restaurant.getId()).isNotNull();
         assertThat(restaurant.getName()).isEqualTo(expectedRestaurantName);
     }
-//    // Deletar o restaurante após a validação de sucesso
-//        restaurantOperationsCollection.deleteRestaurantById(restaurant.getId());
+
 
 }
