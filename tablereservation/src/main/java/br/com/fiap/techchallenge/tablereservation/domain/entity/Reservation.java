@@ -26,6 +26,9 @@ public class Reservation {
 		this.quantityOfPeople = quantityOfPeople;
 	}
 
+	public Reservation(Object o, LocalDate localDate, LocalTime of, String sérgio, String mail, String number) {
+	}
+
 	public String getId() {
 		return id;
 	}

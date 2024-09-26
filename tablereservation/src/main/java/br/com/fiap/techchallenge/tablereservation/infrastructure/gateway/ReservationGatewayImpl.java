@@ -75,4 +75,14 @@ public class ReservationGatewayImpl implements ReservationGateway {
 		return reservationEntityMapper.reservationEntityToReservation(entitySaved);
 	}
 
+	@Override
+	public void deleteReservation(String idReservation) {
+
+	}
+
+	@Override
+	public Object create(String reservationId, Reservation reservation) {
+		return null;
+	}
+
 }

@@ -25,7 +25,10 @@ public class OpeningHoursDetails {
 		this.scheduleOfReservation = scheduleOfReservation;
 	}
 
-	public LocalDate getDay() {
+    public OpeningHoursDetails(String s, String time, String time1) {
+    }
+
+    public LocalDate getDay() {
 		return day;
 	}
 

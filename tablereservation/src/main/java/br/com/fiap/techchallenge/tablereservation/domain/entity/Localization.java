@@ -23,7 +23,10 @@ public class Localization {
 		this.cep = cep;
 	}
 
-	public String getStreet() {
+    public Localization(String ruaExemplo, String s, String sãoPaulo, String sp, int i) {
+    }
+
+    public String getStreet() {
 		return street;
 	}
 

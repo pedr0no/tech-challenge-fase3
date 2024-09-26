@@ -26,11 +26,8 @@ public class AvaliationEntityMapper {
 		return entity;
 	}
 
-	public Double calculateEvaluationAverage(RestaurantEntity restaurantEntity) {
-		var sum = 0.0;
-		for (AvaliationEntity avaliation : restaurantEntity.getAvaliations()) {
-			sum+=avaliation.getStars();
-		}
+	public Double calculateEvaluationAverage(RestaurantEntity restaurantEntity, double stars) {
+		double sum = stars + restaurantEntity.getAvaliationAverage();
 		return sum / restaurantEntity.getAvaliations().size();
 	}
 	

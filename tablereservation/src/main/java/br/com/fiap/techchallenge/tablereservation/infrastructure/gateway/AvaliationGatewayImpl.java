@@ -35,7 +35,7 @@ public class AvaliationGatewayImpl implements AvaliationGateway {
 		var client = clientRepository.findByEmail(avaliation.getClientEmail());
 		var entity = avaliationEntityMapper.buildAvaliationEntity(client, restaurant, avaliation);
 		restaurant.getAvaliations().add(entity);
-		Double evaluationAverage = avaliationEntityMapper.calculateEvaluationAverage(restaurant);
+		Double evaluationAverage = avaliationEntityMapper.calculateEvaluationAverage(restaurant, avaliation.getStars());
 		restaurant.setAvaliationAverage(evaluationAverage);
 		var entitySaved = avaliationRepository.save(entity);
 		restaurantRepository.save(restaurant);
