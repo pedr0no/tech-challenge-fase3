@@ -16,15 +16,3 @@ logging:
       springframework: INFO
     com:
       mongodb: DEBUG
-#spring:
-#  data:
-#    mongodb:
-#      uri: mongodb://localhost:27017/testdb # Banco de testes local
-#      database: testdb
-#
-#logging:
-#  level:
-#    org:
-#      springframework: INFO
-#    com:
-#      mongodb: DEBUG

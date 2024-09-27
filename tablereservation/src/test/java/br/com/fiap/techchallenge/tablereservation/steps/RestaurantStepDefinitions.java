@@ -9,12 +9,14 @@ import br.com.fiap.techchallenge.tablereservation.domain.entity.Restaurant;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Random;
 
+@Tag("integration")
 public class RestaurantStepDefinitions {
 
     @Autowired

@@ -3,13 +3,14 @@ package br.com.fiap.techchallenge.tablereservation.steps;
 import br.com.fiap.techchallenge.tablereservation.application.usecases.ReservationOperationsCollection;
 import br.com.fiap.techchallenge.tablereservation.domain.entity.Reservation;
 import io.cucumber.java.en.*;
+import org.junit.jupiter.api.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import io.restassured.response.Response;
 import io.cucumber.java.en.Then;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-
+@Tag("integration")
 public class ReservationStepDefinitions {
 
     private Response response;

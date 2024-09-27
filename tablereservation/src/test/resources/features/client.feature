@@ -1,3 +1,4 @@
+@Tag("integration")
 Feature: Cadastro de cliente
 
   Scenario: Cadastrar um novo cliente

@@ -5,6 +5,7 @@ import br.com.fiap.techchallenge.tablereservation.domain.entity.Client;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Testcontainers
 @SpringBootTest
 @AutoConfigureDataMongo
+@Tag("integration")
 public class ClientStepDefinitions {
 
     @Autowired
@@ -27,10 +29,9 @@ public class ClientStepDefinitions {
     private String generatedName;
     private String generatedEmail;
 
-    // Método para gerar um número aleatório de 3 dígitos
     private String generateRandomDigits() {
         Random random = new Random();
-        int randomDigits = 100 + random.nextInt(900);  // Gera número de 100 a 999
+        int randomDigits = 100 + random.nextInt(900);
         return String.valueOf(randomDigits);
     }
 
@@ -55,7 +56,7 @@ public class ClientStepDefinitions {
     @Then("o sistema deve retornar o cliente cadastrado com sucesso")
     public void o_sistema_deve_retornar_o_cliente_cadastrado_com_sucesso() {
         assertThat(client.getId()).isNotNull();
-        assertThat(client.getName()).isEqualTo(generatedName);  // Valida o nome gerado
-        assertThat(client.getEmail()).isEqualTo(generatedEmail);  // Valida o email gerado
+        assertThat(client.getName()).isEqualTo(generatedName);
+        assertThat(client.getEmail()).isEqualTo(generatedEmail);
     }
 }

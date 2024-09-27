@@ -1,3 +1,4 @@
+@Tag("integration")
 Feature: Cadastro de restaurante
 
   Scenario: Cadastrar um novo restaurante

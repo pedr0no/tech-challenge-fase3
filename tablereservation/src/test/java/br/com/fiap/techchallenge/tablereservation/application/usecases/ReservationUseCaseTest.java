@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 import br.com.fiap.techchallenge.tablereservation.application.gateways.EmailGateway;
 import br.com.fiap.techchallenge.tablereservation.application.gateways.ReservationGateway;
 import br.com.fiap.techchallenge.tablereservation.domain.entity.Reservation;
@@ -12,10 +11,12 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+@Tag("unit")
 class ReservationUseCaseTest {
 
     @Mock

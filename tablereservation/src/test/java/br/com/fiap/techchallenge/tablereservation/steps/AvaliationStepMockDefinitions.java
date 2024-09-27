@@ -7,13 +7,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Before;
+import org.junit.jupiter.api.Tag;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-
+@Tag("integration")
 public class AvaliationStepMockDefinitions {
     @Mock
     private AvaliationOperationsCollection avaliationOperationsCollection;

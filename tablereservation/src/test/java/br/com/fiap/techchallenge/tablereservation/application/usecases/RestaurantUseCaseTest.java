@@ -4,20 +4,19 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 import br.com.fiap.techchallenge.tablereservation.application.gateways.RestaurantGateway;
 import br.com.fiap.techchallenge.tablereservation.domain.entity.Restaurant;
 import br.com.fiap.techchallenge.tablereservation.domain.entity.Localization;
 import br.com.fiap.techchallenge.tablereservation.domain.entity.OpeningHoursDetails;
 import java.util.List;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-
+@Tag("unit")
 class RestaurantUseCaseTest {
 
     @Mock

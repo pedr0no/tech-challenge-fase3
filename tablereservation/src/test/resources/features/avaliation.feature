@@ -1,3 +1,4 @@
+@Tag("integration")
 Feature: Avaliar restaurante
 
   Scenario: Criar uma avaliação para o restaurante "Taco Bell"

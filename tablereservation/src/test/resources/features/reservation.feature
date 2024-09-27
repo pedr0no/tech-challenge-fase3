@@ -1,3 +1,4 @@
+@Tag("integration")
 @ReservationTest
 Feature: Fazer uma reserva no restaurante
 

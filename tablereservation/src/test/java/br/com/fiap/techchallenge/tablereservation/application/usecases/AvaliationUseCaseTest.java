@@ -4,15 +4,15 @@ import br.com.fiap.techchallenge.tablereservation.application.gateways.Avaliatio
 import br.com.fiap.techchallenge.tablereservation.domain.entity.Avaliation;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+@Tag("unit")
 public class AvaliationUseCaseTest {
 
     @Mock

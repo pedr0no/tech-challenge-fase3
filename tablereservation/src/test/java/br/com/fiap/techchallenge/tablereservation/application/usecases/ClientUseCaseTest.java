@@ -5,16 +5,16 @@ import br.com.fiap.techchallenge.tablereservation.domain.entity.Client;
 import br.com.fiap.techchallenge.tablereservation.infrastructure.controller.exception.BusinessException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
+@Tag("unit")
 public class ClientUseCaseTest {
 
     @Mock
@@ -59,7 +59,6 @@ public class ClientUseCaseTest {
         var expectedClients = List.of(client1, client2);
         var filter = "Sérgio";
 
-        // Supondo que a implementação do ClientGateway tenha um método de busca por filtro
         when(clientGateway.searchClientById("1")).thenReturn(client1);
 
         var resposta = clientOperationsCollection.searchClientById("1");
