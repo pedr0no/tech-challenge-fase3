@@ -6,4 +6,3 @@ Feature: Avaliar restaurante
     And a nota da avaliação é 4.5
     And o comentário da avaliação é "Comida excelente!"
     When a avaliação for criada
-#    Then a avaliação deve ser criada com sucesso
