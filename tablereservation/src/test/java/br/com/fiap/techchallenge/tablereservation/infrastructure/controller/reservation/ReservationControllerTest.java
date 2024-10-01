@@ -1,34 +1,29 @@
 package br.com.fiap.techchallenge.tablereservation.infrastructure.controller.reservation;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import br.com.fiap.techchallenge.tablereservation.application.usecases.ReservationOperationsCollection;
 import br.com.fiap.techchallenge.tablereservation.domain.entity.Reservation;
 import br.com.fiap.techchallenge.tablereservation.domain.enums.ReservationStatus;
 import br.com.fiap.techchallenge.tablereservation.infrastructure.controller.reservation.dto.ReservationDTO;
 import br.com.fiap.techchallenge.tablereservation.infrastructure.controller.reservation.mapper.ReservationMapper;
-import br.com.fiap.techchallenge.tablereservation.main.Utils;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.when;
 
+@Tag("unit")
 class ReservationControllerTest {
 
     @Mock
@@ -82,7 +77,7 @@ class ReservationControllerTest {
     void testUpdateReservationStatus() {
         doNothing().when(reservationOperationsCollection).updateReservationStatus(eq("1"), any());
 
-        ResponseEntity<Void> response = reservationController.updateReservationStatus("1", ReservationStatus.CONFIRMED);
+        ResponseEntity<Void> response = reservationController.updateReservationStatus("1", ReservationStatus.SCHEDULED);
 
         assertEquals(204, response.getStatusCodeValue());
     }

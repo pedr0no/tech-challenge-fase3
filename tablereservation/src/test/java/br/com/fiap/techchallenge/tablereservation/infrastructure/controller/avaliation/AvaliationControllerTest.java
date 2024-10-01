@@ -1,18 +1,17 @@
 package br.com.fiap.techchallenge.tablereservation.infrastructure.controller.avaliation;
 
 import br.com.fiap.techchallenge.tablereservation.application.usecases.AvaliationOperationsCollection;
-import br.com.fiap.techchallenge.tablereservation.config.TestConfig;
 import br.com.fiap.techchallenge.tablereservation.domain.entity.Avaliation;
 import br.com.fiap.techchallenge.tablereservation.infrastructure.controller.avaliation.dto.AvaliationDTO;
 import br.com.fiap.techchallenge.tablereservation.infrastructure.controller.avaliation.dto.CreatedAvaliationDTO;
 import br.com.fiap.techchallenge.tablereservation.infrastructure.controller.avaliation.mapper.AvaliationMapper;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Import;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -24,12 +23,10 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+@Tag("unit")
 @WebMvcTest(AvaliationController.class)
-@Import(TestConfig.class)
 public class AvaliationControllerTest {
 
     @Autowired

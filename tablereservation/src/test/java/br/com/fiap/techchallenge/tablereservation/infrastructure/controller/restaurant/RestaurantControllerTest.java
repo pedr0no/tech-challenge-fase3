@@ -1,27 +1,27 @@
 package br.com.fiap.techchallenge.tablereservation.infrastructure.controller.restaurant;
 
+import br.com.fiap.techchallenge.tablereservation.application.usecases.RestaurantOperationsCollection;
+import br.com.fiap.techchallenge.tablereservation.domain.entity.Restaurant;
+import br.com.fiap.techchallenge.tablereservation.infrastructure.controller.restaurant.dto.RestaurantDTO;
+import br.com.fiap.techchallenge.tablereservation.infrastructure.controller.restaurant.mapper.RestaurantMapper;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.http.ResponseEntity;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
-import br.com.fiap.techchallenge.tablereservation.application.usecases.RestaurantOperationsCollection;
-import br.com.fiap.techchallenge.tablereservation.domain.entity.Restaurant;
-import br.com.fiap.techchallenge.tablereservation.infrastructure.controller.restaurant.dto.RestaurantDTO;
-import br.com.fiap.techchallenge.tablereservation.infrastructure.controller.restaurant.mapper.RestaurantMapper;
-import br.com.fiap.techchallenge.tablereservation.main.Utils;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-
+@Tag("unit")
 class RestaurantControllerTest {
 
     @Mock
@@ -48,7 +48,6 @@ class RestaurantControllerTest {
         MockHttpServletRequest request = new MockHttpServletRequest();
         RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
     }
-
 
 
     @Test

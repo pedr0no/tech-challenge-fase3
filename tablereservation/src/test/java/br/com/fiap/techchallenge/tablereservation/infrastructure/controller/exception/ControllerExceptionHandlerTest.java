@@ -1,21 +1,23 @@
 package br.com.fiap.techchallenge.tablereservation.infrastructure.controller.exception;
 
 
+import br.com.fiap.techchallenge.tablereservation.infrastructure.controller.exception.dto.ErrorDTO;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import br.com.fiap.techchallenge.tablereservation.infrastructure.controller.exception.dto.ErrorDTO;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-
-import java.util.List;
-
+@Tag("unit")
 class ControllerExceptionHandlerTest {
 
     private ControllerExceptionHandler controllerExceptionHandler;

@@ -1,14 +1,12 @@
 package br.com.fiap.techchallenge.tablereservation.infrastructure.controller.client;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import br.com.fiap.techchallenge.tablereservation.application.usecases.ClientOperationsCollection;
 import br.com.fiap.techchallenge.tablereservation.domain.entity.Client;
 import br.com.fiap.techchallenge.tablereservation.infrastructure.controller.client.dto.ClientDTO;
 import br.com.fiap.techchallenge.tablereservation.infrastructure.controller.client.dto.CreatedClientDTO;
 import br.com.fiap.techchallenge.tablereservation.infrastructure.controller.client.mapper.ClientMapper;
-import br.com.fiap.techchallenge.tablereservation.main.Utils;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -25,6 +23,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
+@Tag("unit")
 class ClientControllerTest {
 
     @Mock

@@ -35,3 +35,5 @@ build/
 .idea/
 .idea/.idea_backup/
 
+# Ignora o diretório "data" que é criado como um volume pelo container do MongoDB para persistência de dados
+data/
